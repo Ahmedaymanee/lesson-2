@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درس: نمو وتوزيع السكان في وطننا العربي | الصف السادس الابتدائي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- شريط تقدم الدرس العلوي -->
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- الترويسة الرئيسية -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="brand">
+                <span class="brand-icon">🌍</span>
+                <div class="brand-text">
+                    <h1>نمو وتوزيع السكان في وطننا العربي</h1>
+                    <p>الدراسات الاجتماعية • المنهج الحديث • الصف السادس</p>
+                </div>
+            </div>
+
+            <nav class="main-nav" id="mainNav">
+                <button class="nav-btn active" data-target="home">الرئيسية</button>
+                <button class="nav-btn" data-target="video-section">الفيديو التعليمي</button>
+                <button class="nav-btn" data-target="objectives">الأهداف</button>
+                <button class="nav-btn" data-target="content">شرح الدرس والانفوجرافيك</button>
+                <button class="nav-btn" data-target="activities">الأنشطة</button>
+                <button class="nav-btn" data-target="summary">الملخص</button>
+                <button class="nav-btn" data-target="quiz">الاختبار (15 درجة)</button>
+            </nav>
+
+            <div class="header-tools">
+                <!-- زر قائمة المساعدة والإرشادات -->
+                <button class="help-btn" id="openHelpBtn" title="كيف أتعامل مع الموقع؟">
+                    <span class="help-icon">❓</span> دليل المساعدة
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- نافذة منبثقة (Modal) لدليل المساعدة والتوجيه التفاعلي -->
+    <div class="modal-overlay" id="helpModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>🧭 دليل التلميذ: كيف تستمتع وتتعلم في هذا الموقع؟</h3>
+                <button class="modal-close" id="closeHelpBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="help-step">
+                    <span class="step-num">1</span>
+                    <div class="step-desc">
+                        <h4>شاهد الفيديو التوضيحي 🎬</h4>
+                        <p>ابدأ بقسم <strong>الفيديو التعليمي</strong> لتأخذ فكرة شاملة وسريعة بالصوت والصورة عن فكرة توزيع ونمو السكان.</p>
+                    </div>
+                </div>
+                <div class="help-step">
+                    <span class="step-num">2</span>
+                    <div class="step-desc">
+                        <h4>تصفح الانفوجرافيك والوحدات 📊</h4>
+                        <p>في قسم <strong>الشرح</strong>، استخدم الأزرار للتنقل بين الوحدات الـ 5. ستجد رسوماً ومقارنات بيانية ملونة تشرح لك كل رقم وقاعدة بأسلوب بصري سلس.</p>
+                    </div>
+                </div>
+                <div class="help-step">
+                    <span class="step-num">3</span>
+                    <div class="step-desc">
+                        <h4>تفاعل مع الخريطة والألعاب 🎮</h4>
+                        <p>في قسم <strong>الأنشطة</strong>:
+                        <br>• اضغط على أقاليم <strong>الخريطة التفاعلية</strong> لتسمع وتقرأ أسرار كل إقليم.
+                        <br>• في لعبة <strong>فرز العوامل</strong>: اسحب البطاقة بالفأرة، أو اضغط عليها بإصبعك ثم اضغط على الصندوق المناسب.</p>
+                    </div>
+                </div>
+                <div class="help-step">
+                    <span class="step-num">4</span>
+                    <div class="step-desc">
+                        <h4>تألق في الاختبار النهائي 🏆</h4>
+                        <p>اكتب اسمك الثلاثي، وأجب عن 15 سؤالاً تفاعلياً، واحصل في النهاية على تقرير فوري بنقاط قوتك وشهادة تميزك!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="gotItBtn">فهمت، هيا نبدأ التعلم! 👍</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <!-- 1. الرئيسية -->
+        <section id="home" class="page-section active">
+            <div class="hero-card">
+                <div class="hero-content">
+                    <span class="badge">الصف السادس الابتدائي • دراسات اجتماعية 📚</span>
+                    <h2>مرحباً بك في عالم <span class="highlight">سكان وطننا العربي</span></h2>
+                    <p class="hero-desc">
+                        هل تعلم أن مصر وحدها تضم أكثر من ربع سكان الوطن العربي؟ وهل تعلم لماذا يتجمع السكان بكثافة حول الأنهار والسواحل بينما تصبح الصحاري خالية؟ استعد لمشاهدة فيديو ممتع، واستكشاف انفوجرافيك تفاعلي مذهل، وخوض ألعاب تحدي مشوقة!
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary btn-large" onclick="navigateTo('video-section')">شاهد فيديو الدرس 🎬</button>
+                        <button class="btn btn-accent btn-large" onclick="navigateTo('content')">تصفح الانفوجرافيك 📊</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-circle">
+                        <span class="big-emoji">👥🌾🏙️</span>
+                        <div class="floating-badge badge-1">🇪🇬 مصر: المركز الأول عربياً</div>
+                        <div class="floating-badge badge-2">📊 61% بإفريقيا • 39% بآسيا</div>
+                        <div class="floating-badge badge-3">💧 المياه والتربة أساس الحياة</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بطاقات ملخصة للرحلة -->
+            <div class="features-grid">
+                <div class="feature-card" onclick="navigateTo('video-section')">
+                    <div class="f-icon">🎥</div>
+                    <h3>فيديو كرتوني تعليمي</h3>
+                    <p>محتوى شيق يلخص فكرة نمو السكان وعوامل توزعهم.</p>
+                </div>
+                <div class="feature-card" onclick="navigateTo('content')">
+                    <div class="f-icon">📈</div>
+                    <h3>انفوجرافيك بصري غني</h3>
+                    <p>أرقام ورسوم توضيحية تجعل الفهم أسهل بنسبة 100%.</p>
+                </div>
+                <div class="feature-card" onclick="navigateTo('activities')">
+                    <div class="f-icon">🎯</div>
+                    <h3>ألعاب وأنشطة ذكية</h3>
+                    <p>خريطة متكلمة وتحدي تصنيف العوامل الطبيعية والبشرية.</p>
+                </div>
+                <div class="feature-card" onclick="navigateTo('quiz')">
+                    <div class="f-icon">🏅</div>
+                    <h3>الاختبار الإلكتروني (15 درجة)</h3>
+                    <p>قياس ذكي لمستواك مع تقرير تفصيلي لنقاط القوة والمراجعة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. قسم الفيديو التعليمي الجديد -->
+        <section id="video-section" class="page-section">
+            <div class="section-header">
+                <h2>🎬 شاهد وتعلم: قصة السكان في الوطن العربي</h2>
+                <p>شاهد هذا المقطع التوضيحي السريع لتبسيط أهم أفكار الدرس قبل الخوض في التفاصيل:</p>
+            </div>
+
+            <div class="video-container-card">
+                <div class="video-responsive-wrapper">
+                    <!-- يمكنك استبدال الرابط أدناه بأي رابط فيديو شرح من يوتيوب -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/cxOL0AhfiuU?si=HcnArZmjdOun1IZ9" 
+                        title="فيديو شرح درس نمو وتوزيع السكان" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    
+                </div>
+                </div>
+
+                <!-- مذكرات وملخص بجانب الفيديو -->
+                <div class="video-notes">
+                    <h4>💡 أهم ما ستتعلمه من هذا الفيديو:</h4>
+                    <ul class="notes-list">
+                        <li><strong>معدل النمو السكاني العربي:</strong> يرتفع عن المعدل العالمي بسبب كثرة المواليد، قلة الوفيات، والهجرة للعمل.</li>
+                        <li><strong>أين يعيش معظم السكان؟</strong> 61% في دول الجناح الإفريقي، و39% في دول الجناح الآسيوي.</li>
+                        <li><strong>من هي الدولة الأولى سكاناً؟</strong> جمهورية مصر العربية (أكثر من ربع سكان الوطن العربي).</li>
+                    </ul>
+                    <div class="video-cta">
+                        <button class="btn btn-primary" onclick="navigateTo('content')">انتقل الآن لشرح الانفوجرافيك المفصل ⬅️</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. الأهداف التعليمية -->
+        <section id="objectives" class="page-section">
+            <div class="section-header">
+                <h2>🎯 أهداف الدرس ونواتج التعلم</h2>
+                <p>مبنية وفق المنهج الوزاري الحديث للدراسات الاجتماعية للصف السادس:</p>
+            </div>
+
+            <div class="objectives-tabs">
+                <button class="tab-btn active" onclick="switchObjTab('cognitive')">🧠 أهداف معرفية</button>
+                <button class="tab-btn" onclick="switchObjTab('skills')">🛠️ أهداف مهارية</button>
+                <button class="tab-btn" onclick="switchObjTab('affective')">❤️ أهداف وجدانية</button>
+            </div>
+
+            <div id="obj-cognitive" class="obj-content-tab active">
+                <div class="cards-grid">
+                    <div class="card obj-card">
+                        <div class="card-icon">📈</div>
+                        <h4>النمو السكاني</h4>
+                        <p>يفسر أسباب ارتفاع معدل نمو السكان في الوطن العربي مقارنة بالمعدل العالمي.</p>
+                    </div>
+                    <div class="card obj-card">
+                        <div class="card-icon">🗺️</div>
+                        <h4>توزيع السكان</h4>
+                        <p>يحدد مناطق الكثافة المرتفعة، والمتوسطة، والمنخفضة، ونادرة السكان على الخريطة.</p>
+                    </div>
+                    <div class="card obj-card">
+                        <div class="card-icon">⚖️</div>
+                        <h4>العوامل الطبيعية والبشرية</h4>
+                        <p>يصنف أثر المياه والتضاريس والمناخ مقابل الأنشطة الاقتصادية والمواصلات.</p>
+                    </div>
+                    <div class="card obj-card">
+                        <div class="card-icon">⚖️</div>
+                        <h4>المشكلة السكانية بوجهيها</h4>
+                        <p>يميز بين مشكلة فائض السكان ونقص الموارد، ومشكلة قلة السكان وفائض الموارد.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="obj-skills" class="obj-content-tab">
+                <div class="cards-grid">
+                    <div class="card obj-card">
+                        <div class="card-icon">📊</div>
+                        <h4>قراءة الانفوجرافيك</h4>
+                        <p>استخراج دلالات الرسوم البيانية لنسبة السكان في الجناحين الإفريقي والآسيوي.</p>
+                    </div>
+                    <div class="card obj-card">
+                        <div class="card-icon">🧭</div>
+                        <h4>تحليل الخريطة الجغرافية</h4>
+                        <p>ربط السهول الفيضية بنشأة الزراعة والاستقرار البشري الكثيف.</p>
+                    </div>
+                    <div class="card obj-card">
+                        <div class="card-icon">🧮</div>
+                        <h4>حساب الكثافة البسيطة</h4>
+                        <p>تطبيق معادلة (عدد السكان ÷ المساحة الكلية) بدقة وسرعة.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="obj-affective" class="obj-content-tab">
+                <div class="cards-grid">
+                    <div class="card obj-card">
+                        <div class="card-icon">🤝</div>
+                        <h4>التكامل العربي</h4>
+                        <p>يقدر أهمية التعاون بين الدول ذات الفائض السكاني والدول التي تملك وفرة في الموارد المالية.</p>
+                    </div>
+                    <div class="card obj-card">
+                        <div class="card-icon">🌱</div>
+                        <h4>حماية الموارد</h4>
+                        <p>يدرك أهمية ترشيد المياه وبناء المدن الذكية لوقف التعدي على الأراضي الزراعية.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary" onclick="navigateTo('content')">ابدأ الشرح والانفوجرافيك ⬅️</button>
+            </div>
+        </section>
+
+        <!-- 4. محتوى الدرس المحدث والمدعم بالانفوجرافيك -->
+        <section id="content" class="page-section">
+            <div class="section-header">
+                <h2>📚 المحتوى التعليمي والانفوجرافيك التفاعلي</h2>
+                <p>تعلم بالعين والعقل! تنقل بين المحطات الخمس لاستعراض الرسوم البيانية والشرح:</p>
+            </div>
+
+            <!-- أزرار التنقل بين وحدات الدرس -->
+            <div class="units-navigation">
+                <button class="unit-btn active" onclick="showUnit(1)">1. النمو السكاني وأسبابه</button>
+                <button class="unit-btn" onclick="showUnit(2)">2. انفوجرافيك: أين يعيش السكان؟</button>
+                <button class="unit-btn" onclick="showUnit(3)">3. العوامل المؤثرة (طبيعية وبشرية)</button>
+                <button class="unit-btn" onclick="showUnit(4)">4. الكثافة السكانية ومحاكاتها</button>
+                <button class="unit-btn" onclick="showUnit(5)">5. المشكلة السكانية (ميزان الموارد)</button>
+            </div>
+
+            <!-- الوحدة 1: النمو السكاني -->
+            <article id="unit-1" class="unit-panel active">
+                <div class="unit-box">
+                    <div class="unit-text">
+                        <h3>1. ما هو النمو السكاني؟ ولماذا يزداد سكاننا بسرعة؟ 📈</h3>
+                        <div class="infographic-banner">
+                            <div class="info-stat-card">
+                                <span class="stat-big-num">1.8%</span>
+                                <span class="stat-caption">معدل النمو السكاني في الوطن العربي</span>
+                                <span class="stat-sub">وهو أعلى من المعدل العالمي (حوالي 1%)!</span>
+                            </div>
+                            <div class="info-causes-flow">
+                                <div class="cause-bubble">
+                                    <span class="c-icon">👶</span>
+                                    <strong>ارتفاع المواليد</strong>
+                                    <p>كثرة الإنجاب في معظم الأقطار</p>
+                                </div>
+                                <div class="cause-bubble">
+                                    <span class="c-icon">🏥</span>
+                                    <strong>انخفاض الوفيات</strong>
+                                    <p>بفضل تحسن الرعاية الصحية والمستشفيات</p>
+                                </div>
+                                <div class="cause-bubble">
+                                    <span class="c-icon">✈️</span>
+                                    <strong>الهجرة الخارجية</strong>
+                                    <p>انتقال الأفراد للعمل كالهجرة لدول الخليج</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="curriculum-tip">
+                            <strong>📌 تعريف هام للامتحان:</strong>
+                            <p><strong>النمو السكاني:</strong> هو نسبة زيادة عدد السكان خلال فترة زمنية محددة نتيجة للزيادة الطبيعية (المواليد والوفيات) والهجرة.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- الوحدة 2: انفوجرافيك توزيع السكان ودول الصدارة -->
+            <article id="unit-2" class="unit-panel">
+                <div class="unit-box">
+                    <div class="unit-text">
+                        <h3>2. انفوجرافيك: كيف يتوزع السكان بين قارتي إفريقيا وآسيا؟ 📊</h3>
+                        
+                        <!-- انفوجرافيك مقارنة الجناحين -->
+                        <div class="infographic-wings-wrapper">
+                            <div class="wing-card wing-africa">
+                                <div class="wing-percent">61%</div>
+                                <h4>دول الجناح الإفريقي 🌍</h4>
+                                <p>يعيش به نحو ثلثي سكان الوطن العربي (10 دول).</p>
+                                <span class="wing-tag">كثافة أعلى</span>
+                            </div>
+                            <div class="vs-circle">مقابل</div>
+                            <div class="wing-card wing-asia">
+                                <div class="wing-percent">39%</div>
+                                <h4>دول الجناح الآسيوي 🌏</h4>
+                                <p>يعيش به أكثر من ثلث السكان بقليل (12 دولة).</p>
+                                <span class="wing-tag">مساحات شاسعة وقليلة الكثافة</span>
+                            </div>
+                        </div>
+
+                        <!-- انفوجرافيك أكبر 4 دول سكاناً -->
+                        <h4 class="sub-heading-info">🏆 الدول الأربع الأولى سكاناً في الوطن العربي:</h4>
+                        <div class="top-countries-infographic">
+                            <div class="country-bar c-egypt">
+                                <div class="c-flag">🇪🇬</div>
+                                <div class="c-info">
+                                    <strong>1. مصر (المركز الأول)</strong>
+                                    <span>تحتوي وحدها على أكثر من ربع (25%) سكان الوطن العربي!</span>
+                                </div>
+                                <div class="c-badge">الأولى عربياً 🥇</div>
+                            </div>
+
+                            <div class="country-bar c-sudan">
+                                <div class="c-flag">🇸🇩</div>
+                                <div class="c-info">
+                                    <strong>2. السودان</strong>
+                                    <span>تأتي في المركز الثاني سكاناً.</span>
+                                </div>
+                                <div class="c-badge">الثانية 🥈</div>
+                            </div>
+
+                            <div class="country-bar c-algeria">
+                                <div class="c-flag">🇩🇿</div>
+                                <div class="c-info">
+                                    <strong>3. الجزائر</strong>
+                                    <span>أكبر الدول العربية مساحة وفي المركز الثالث سكاناً.</span>
+                                </div>
+                                <div class="c-badge">الثالثة 🥉</div>
+                            </div>
+
+                            <div class="country-bar c-iraq">
+                                <div class="c-flag">🇮🇶</div>
+                                <div class="c-info">
+                                    <strong>4. العراق</strong>
+                                    <span>تأتي في المركز الرابع سكاناً (بلاد الرافدين الخصبة).</span>
+                                </div>
+                                <div class="c-badge">الرابعة ⭐</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- الوحدة 3: العوامل المؤثرة (انفوجرافيك مقارن) -->
+            <article id="unit-3" class="unit-panel">
+                <div class="unit-box">
+                    <div class="unit-text">
+                        <h3>3. انفوجرافيك: لماذا يتركز السكان هنا ويقلون هناك؟ ⚖️</h3>
+                        
+                        <div class="factors-infographic-grid">
+                            <!-- انفوجرافيك العوامل الطبيعية -->
+                            <div class="f-info-box natural-box">
+                                <div class="f-info-head">🌿 1. عوامل طبيعية (هبة من الله)</div>
+                                <div class="f-info-body">
+                                    <div class="f-item">
+                                        <div class="f-ico">💧</div>
+                                        <div>
+                                            <strong>موارد المياه والتربة:</strong>
+                                            <p>يتركز السكان حول الأنهار (النيل ودجلة والفرات)، والواحات، وسواحل الأمطار الشتوية.</p>
+                                        </div>
+                                    </div>
+                                    <div class="f-item">
+                                        <div class="f-ico">☀️</div>
+                                        <div>
+                                            <strong>المناخ المعتدل:</strong>
+                                            <p>يجذب السكان كحوض البحر المتوسط، بينما يهرب السكان من الصحاري شديدة الحرارة.</p>
+                                        </div>
+                                    </div>
+                                    <div class="f-item">
+                                        <div class="f-ico">🏞️</div>
+                                        <div>
+                                            <strong>التضاريس (السهول vs الجبال):</strong>
+                                            <p>يفضل الناس السهول المنبسطة، ويقلون على الجبال (إلا جبال لبنان واليمن لاعتدال مناخها!).</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- انفوجرافيك العوامل البشرية -->
+                            <div class="f-info-box human-box">
+                                <div class="f-info-head">🏗️ 2. عوامل بشرية (من صنع الإنسان)</div>
+                                <div class="f-info-body">
+                                    <div class="f-item">
+                                        <div class="f-ico">🏭</div>
+                                        <div>
+                                            <strong>الأنشطة الاقتصادية وفرص العمل:</strong>
+                                            <p>المدن الصناعية ومناطق استخراج البترول والغاز (كالخليج العربي) جاذبة للملايين.</p>
+                                        </div>
+                                    </div>
+                                    <div class="f-item">
+                                        <div class="f-ico">🛣️</div>
+                                        <div>
+                                            <strong>النقل والمواصلات:</strong>
+                                            <p>وجود الطرق والموانئ والمطارات يسهل إقامة المشروعات واستقرار السكان.</p>
+                                        </div>
+                                    </div>
+                                    <div class="f-item">
+                                        <div class="f-ico">🏥</div>
+                                        <div>
+                                            <strong>توفر الرعاية الصحية والتعليم:</strong>
+                                            <p>توافر المدارس والمستشفيات الحديثة يجذب العائلات للإقامة بالمدن.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- الوحدة 4: الكثافة السكانية -->
+            <article id="unit-4" class="unit-panel">
+                <div class="unit-box">
+                    <div class="unit-text">
+                        <h3>4. قانون الكثافة السكانية التفاعلي 🧮</h3>
+                        <p class="highlight-p">
+                            <strong>الكثافة العامة للسكان:</strong> هي ناتج قسمة (إجمالي عدد السكان) على (المساحة الكلية للأرض التي يقيمون عليها).
+                        </p>
+
+                        <!-- آلة حاسبة جغرافية تفاعلية -->
+                        <div class="density-calc-card">
+                            <h4>جرب الآلة الحاسبة الجغرافية بنفسك:</h4>
+                            <div class="calc-inputs-row">
+                                <div class="input-block">
+                                    <label>عدد السكان (نسمة):</label>
+                                    <input type="number" id="calcPopInput" value="200000" step="10000">
+                                </div>
+                                <div class="calc-math-sign">÷</div>
+                                <div class="input-block">
+                                    <label>المساحة الكلية (كم²):</label>
+                                    <input type="number" id="calcAreaInput" value="100" step="10">
+                                </div>
+                                <button class="btn btn-primary" onclick="calculateDensityInteractive()">احسب الكثافة 🧮</button>
+                            </div>
+                            <div class="calc-live-result" id="calcResultDisplay">
+                                الكثافة السكانية = <strong>2,000 نسمة لكل كم²</strong> (منطقة مرتفعة الكثافة جداً 🟢)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- الوحدة 5: المشكلة السكانية (ميزان ذو وجهين) -->
+            <article id="unit-5" class="unit-panel">
+                <div class="unit-box">
+                    <div class="unit-text">
+                        <h3>5. انفوجرافيك: الوجهان المتناقضان للمشكلة السكانية في الوطن العربي ⚖️</h3>
+                        <p>ليست المشكلة السكانية واحدة في كل بلادنا؛ بل لها شكلان مختلفان تماماً:</p>
+
+                        <div class="problem-sides-infographic">
+                            <!-- الوجه الأول -->
+                            <div class="prob-side side-surplus">
+                                <div class="side-badge">النمط الأول: فائض سكاني وعجز موارد</div>
+                                <div class="side-icon">👥📈 vs 🍞📉</div>
+                                <h4>دول لديها زيادة في السكان ونقص في الموارد</h4>
+                                <p class="side-countries">أمثلة: <strong>مصر، الأردن، سوريا</strong></p>
+                                <ul class="side-effects">
+                                    <li>⚠️ زيادة معدلات البطالة لقلة الوظائف.</li>
+                                    <li>⚠️ الازدحام الشديد وتدهور المرافق والمدارس.</li>
+                                    <li>⚠️ الزحف العمراني على الأراضي الزراعية.</li>
+                                </ul>
+                            </div>
+
+                            <!-- الوجه الثاني -->
+                            <div class="prob-side side-deficit">
+                                <div class="side-badge">النمط الثاني: قلة سكان وفائض موارد</div>
+                                <div class="side-icon">👥📉 vs 🛢️📈</div>
+                                <h4>دول لديها قلة في السكان وزيادة في الموارد</h4>
+                                <p class="side-countries">أمثلة: <strong>السعودية، الإمارات، قطر، الكويت</strong></p>
+                                <ul class="side-effects">
+                                    <li>⚠️ نقص حاد في الأيدي العاملة الوطنية.</li>
+                                    <li>⚠️ الحاجة لاستقبال ملايين الوافدين والمهاجرين للعمل.</li>
+                                    <li>⚠️ الحاجة المستمرة للتكنولوجيا لتعويض نقص العمالة.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="solutions-banner">
+                            <h4>🤝 كيف يحقق العرب التكامل السكاني؟</h4>
+                            <p>الحل يكمن في <strong>التعاون العربي</strong>: أن تنتقل الأيدي العاملة والخبرات من دول الفائض السكاني لتعمل في دول الفائض المالي؛ فيتحقق الخير للجميع!</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- أزرار التنقل السريع بين الوحدات -->
+            <div class="unit-flow-nav">
+                <button class="btn btn-secondary" id="prevUnitBtn" onclick="navigateUnit(-1)">⬅️ المحطة السابقة</button>
+                <button class="btn btn-primary" id="nextUnitBtn" onclick="navigateUnit(1)">المحطة التالية ➡️</button>
+            </div>
+        </section>
+
+        <!-- 5. الأنشطة التفاعلية -->
+        <section id="activities" class="page-section">
+            <div class="section-header">
+                <h2>🎮 واحة التطبيقات والأنشطة التفاعلية</h2>
+                <p>مارس ما تعلمته لتثبيت المعارف والمهارات:</p>
+            </div>
+
+            <!-- النشاط 1: الخريطة -->
+            <div class="activity-container">
+                <div class="act-title">
+                    <span class="act-number">نشاط 1</span>
+                    <h3>🗺️ اضغط واكتشف خريطة التوزيع السكاني التفاعلية</h3>
+                </div>
+                <p class="act-instruction">انقر على الأقاليم الملونة لمعرفة سر الكثافة السكانية في كل منطقة وفق المنهج:</p>
+                
+                <div class="map-interactive-wrapper">
+                    <div class="svg-map-box">
+                        <svg viewBox="0 0 800 420" class="arab-svg-map">
+                            <rect width="100%" height="100%" fill="#e0f2fe" rx="15"/>
+                            
+                            <!-- الصحراء الكبرى -->
+                            <path class="map-region reg-desert" data-region="sahara" d="M 120 180 L 360 170 L 370 280 L 150 280 Z" />
+                            <text x="210" y="235" class="map-label">الصحراء الكبرى 🏜️</text>
+
+                            <!-- وادي النيل -->
+                            <path class="map-region reg-river" data-region="nile" d="M 370 140 L 410 140 L 400 290 L 370 290 Z" />
+                            <text x="365" y="195" class="map-label glow">وادي النيل ودلتاه 🌊</text>
+
+                            <!-- السواحل الشمالية -->
+                            <path class="map-region reg-coast" data-region="coasts" d="M 110 135 L 360 135 L 360 160 L 110 160 Z" />
+                            <text x="200" y="150" class="map-label">السواحل الشمالية المعتدلة 🏖️</text>
+
+                            <!-- دجلة والفرات -->
+                            <path class="map-region reg-meso" data-region="mesopotamia" d="M 445 120 L 515 140 L 490 200 L 435 170 Z" />
+                            <text x="445" y="160" class="map-label">سهول دجلة والفرات 🌾</text>
+
+                            <!-- الخليج العربي -->
+                            <path class="map-region reg-gulf" data-region="gulf" d="M 440 190 L 580 200 L 550 320 L 430 300 Z" />
+                            <text x="470" y="255" class="map-label">الخليج ومراكز النفط 🛢️</text>
+                        </svg>
+
+                        <div class="map-legend">
+                            <span class="legend-item"><span class="color-dot high"></span> مناطق سهول فيضية وساحلية مرتفعة الكثافة</span>
+                            <span class="legend-item"><span class="color-dot med"></span> مناطق ثروات بترولية ومدن حديثة</span>
+                            <span class="legend-item"><span class="color-dot low"></span> مناطق صحراوية نادرة السكان</span>
+                        </div>
+                    </div>
+
+                    <div class="region-info-card" id="regionInfoCard">
+                        <div class="info-placeholder">
+                            <span class="pulse-icon">👆</span>
+                            <p>انقر على أي جزء من أجزاء الخريطة لتظهر معلوماته الجغرافية فوراً هنا!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- النشاط 2: السحب والإسقاط -->
+            <div class="activity-container">
+                <div class="act-title">
+                    <span class="act-number">نشاط 2</span>
+                    <h3>⚖️ لعبة فرز العوامل: طبيعية 🌿 أم بشرية 🏗️؟</h3>
+                </div>
+                <p class="act-instruction">اسحب كل بطاقة إلى صندوقها الصحيح، أو اضغط على البطاقة ثم اضغط على الصندوق مباشرة:</p>
+
+                <div class="drag-game-area">
+                    <div class="drop-zone natural-zone" id="zoneNatural" ondragover="allowDrop(event)" ondrop="handleDrop(event, 'natural')">
+                        <div class="zone-title">🌿 عوامل طبيعية</div>
+                        <div class="zone-items" id="naturalItems"></div>
+                    </div>
+
+                    <div class="items-source" id="itemsSource">
+                        <div class="drag-item" draggable="true" id="item1" data-type="natural" ondragstart="handleDragStart(event)">💧 وفرة مياه الأنهار والتربة الخصبة</div>
+                        <div class="drag-item" draggable="true" id="item2" data-type="human" ondragstart="handleDragStart(event)">🛢️ حقول استخراج البترول والغاز</div>
+                        <div class="drag-item" draggable="true" id="item3" data-type="natural" ondragstart="handleDragStart(event)">☀️ اعتدال المناخ وسقوط الأمطار الشتوية</div>
+                        <div class="drag-item" draggable="true" id="item4" data-type="human" ondragstart="handleDragStart(event)">🚌 شبكات الطرق والمواصلات السريعة</div>
+                        <div class="drag-item" draggable="true" id="item5" data-type="natural" ondragstart="handleDragStart(event)">🏞️ سهول منبسطة مستوية السطح</div>
+                        <div class="drag-item" draggable="true" id="item6" data-type="human" ondragstart="handleDragStart(event)">🏫 توفر المستشفيات والجامعات الكبرى</div>
+                    </div>
+
+                    <div class="drop-zone human-zone" id="zoneHuman" ondragover="allowDrop(event)" ondrop="handleDrop(event, 'human')">
+                        <div class="zone-title">🏗️ عوامل بشرية</div>
+                        <div class="zone-items" id="humanItems"></div>
+                    </div>
+                </div>
+                <div class="game-feedback" id="dragFeedback"></div>
+                <div class="act-actions">
+                    <button class="btn btn-secondary btn-sm" onclick="resetDragGame()">إعادة اللعبة 🔄</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. الملخص والمراجعة -->
+        <section id="summary" class="page-section">
+            <div class="section-header">
+                <h2>📋 الملخص الذهبي للمنهج</h2>
+                <p>أهم الحقائق والمعلومات التي يجب أن تتذكرها دائماً:</p>
+            </div>
+
+            <div class="summary-cards-grid">
+                <div class="sum-card">
+                    <div class="sum-icon">📈</div>
+                    <h3>معدل النمو</h3>
+                    <p>1.8% وهو أعلى من المعدل العالمي، وسببه: كثرة المواليد، قلة الوفيات، والهجرات.</p>
+                </div>
+                <div class="sum-card">
+                    <div class="sum-icon">🌍</div>
+                    <h3>الجناحان العربيّان</h3>
+                    <p>61% في إفريقيا (مصر أكبر دولة)، و39% في آسيا (العراق أكبر دولة آسيوية عربية).</p>
+                </div>
+                <div class="sum-card">
+                    <div class="sum-icon">💧</div>
+                    <h3>التركز والندرة</h3>
+                    <p>أعلى تركز: السهول الفيضية والساحلية. أندر المناطق: الصحراء الكبرى والربع الخالي.</p>
+                </div>
+                <div class="sum-card">
+                    <div class="sum-icon">⚖️</div>
+                    <h3>المشكلة السكانية</h3>
+                    <p>دول فائض سكاني (مثل مصر)، مقابل دول فائض مالي وعجز عمالة (مثل دول الخليج).</p>
+                </div>
+            </div>
+
+            <div class="section-footer">
+                <button class="btn btn-primary btn-large" onclick="navigateTo('quiz')">جاهز للاختبار النهائي؟ انطلق 🎯</button>
+            </div>
+        </section>
+
+        <!-- 7. الاختبار الإلكتروني النهائي (15 درجة) -->
+        <section id="quiz" class="page-section">
+            <div class="section-header">
+                <h2>🏆 الاختبار الإلكتروني الشامل (15 درجة)</h2>
+                <p>أظهر مهارتك الجغرافية! 15 سؤالاً تغطي المفاهيم، الخرائط، وأسباب التوزيع.</p>
+            </div>
+
+            <div id="quiz-start-screen" class="quiz-card-wrapper">
+                <div class="quiz-welcome-card">
+                    <span class="q-badge">اختبار دراسات اجتماعية - سادسة ابتدائي</span>
+                    <h3>مرحباً بك في الاختبار النهائي!</h3>
+                    <p>سجل اسمك ليظهر في شهادة التفوق وتحليل أدائك:</p>
+                    <div class="input-group">
+                        <label for="studentNameInput">اسم البطل / البطلة:</label>
+                        <input type="text" id="studentNameInput" placeholder="اكتب اسمك الثلاثي هنا..." maxlength="40">
+                    </div>
+                    <button class="btn btn-primary btn-large" onclick="startFinalQuiz()">بدء الاختبار الآن 📝</button>
+                    <div id="lastScoreAlert" class="last-score-banner" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div id="quiz-question-screen" class="quiz-card-wrapper" style="display:none;">
+                <div class="quiz-status-bar">
+                    <span id="questionCounter">السؤال 1 من 15</span>
+                    <div class="quiz-progress-track">
+                        <div id="quizProgressFill" class="quiz-progress-fill"></div>
+                    </div>
+                    <span id="currentScoreBadge">الدرجة: 0</span>
+                </div>
+
+                <div class="question-container">
+                    <span class="question-type-tag" id="qTypeTag">اختيار من متعدد</span>
+                    <h3 class="question-title" id="qText">نص السؤال هنا...</h3>
+
+                    <div class="options-container" id="qOptionsContainer"></div>
+
+                    <div class="fill-container" id="qFillContainer" style="display:none;">
+                        <input type="text" id="fillAnswerInput" placeholder="اكتب الكلمة المناسبة هنا..." autocomplete="off">
+                        <button class="btn btn-secondary" onclick="submitFillAnswer()">تأكيد الإجابة ✔️</button>
+                    </div>
+
+                    <div class="question-feedback" id="qFeedback"></div>
+                </div>
+
+                <div class="quiz-action-bar">
+                    <button class="btn btn-primary" id="nextQuestionBtn" onclick="nextQuizQuestion()" style="display:none;">السؤال التالي ⬅️</button>
+                </div>
+            </div>
+
+            <div id="quiz-result-screen" class="quiz-card-wrapper" style="display:none;">
+                <div class="report-card">
+                    <div class="result-header">
+                        <div class="trophy-icon" id="resultTrophy">🏆</div>
+                        <h3 id="resultTitle">أحسنت يا بطل!</h3>
+                        <p id="studentGreeting">تهانينا للطالب: <strong>...</strong></p>
+                    </div>
+
+                    <div class="score-summary-grid">
+                        <div class="stat-box">
+                            <span class="stat-number" id="finalScoreVal">0 / 15</span>
+                            <span class="stat-label">الدرجة النهائية</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="finalPercentVal">0%</span>
+                            <span class="stat-label">النسبة المئوية</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-number" id="finalGradeVal">ممتاز</span>
+                            <span class="stat-label">التقدير العام</span>
+                        </div>
+                    </div>
+
+                    <div class="analytics-details">
+                        <div class="analytics-col strengths">
+                            <h4>💪 نقاط القوة والتميز:</h4>
+                            <ul id="strengthsList"></ul>
+                        </div>
+                        <div class="analytics-col weaknesses">
+                            <h4>🔍 موضوعات تحتاج مراجعة:</h4>
+                            <ul id="weaknessesList"></ul>
+                        </div>
+                    </div>
+
+                    <div class="review-answers-section">
+                        <h4>📋 مراجعة كافة الأسئلة وإجاباتها النموذجية:</h4>
+                        <div class="answers-accordion" id="answersAccordion"></div>
+                    </div>
+
+                    <div class="result-actions">
+                        <button class="btn btn-primary" onclick="restartQuiz()">إعادة الاختبار 🔄</button>
+                        <button class="btn btn-secondary" onclick="window.print()">طباعة شهادة وتقرير الدرجة 🖨️</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>مشروع درس: <strong>نمو وتوزيع السكان في وطننا العربي</strong> • الدراسات الاجتماعية • الصف السادس الابتدائي</p>
+        <p class="copyright">موقع تعليمي تفاعلي صُمم بالمعايير التربوية لتبسيط الجغرافيا لأبنائنا الطلاب © 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
